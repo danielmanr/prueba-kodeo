@@ -44,11 +44,10 @@ class UsuarioController extends Controller{
             $db = \Config\Database::connect();
             $ejecucion = $db->table('tbl_usuarios');
             $ejecucion->insert($datos);
+            return $this->response->redirect(site_url('listaUsuarios'));
             
 
         }
-
-
     }
     
     
@@ -57,7 +56,32 @@ class UsuarioController extends Controller{
         $usuario->where('id',$id)->delete($id);
 
         return $this->response->redirect(site_url('listaUsuarios'));
+    }
+
+
+    public function editar($id = null){
+        $usuario = new Usuario();
+
+        $datos['tbl_usuarios'] = $usuario->where('id',$id)->first();
+        $datos['header'] = view('templates/header');
+        $datos['footer'] = view('templates/footer');
         
+        return view('editar/editarUsuario',$datos);
+    }
+
+
+    public function actualizar(){
+        $usuario = new Usuario();
+        $id = intval($this->mRequest->getVar('id'));
+        $datos = [
+            'Nombre' => $this->mRequest->getVar('nombre'),
+            'Contrasena' => $this->mRequest->getVar('contrasena')
+        ];
+        $usuario->update($id,$datos);
+        
+        return $this->response->redirect(site_url('listaUsuarios'));
+
+
 
     }
 

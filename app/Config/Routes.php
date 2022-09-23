@@ -57,3 +57,5 @@ $routes->get('crear', 'UsuarioController::crear');
 $routes->post('guardar', 'UsuarioController::guardar');
 $routes->get('listaUsuarios', 'UsuarioController::index');
 $routes->get('borrarUsuario/(:num)', 'UsuarioController::borrar/$1');
+$routes->get('editarUsuario/(:num)', 'UsuarioController::editar/$1');
+$routes->post('actualizarUsuario', 'UsuarioController::actualizar');

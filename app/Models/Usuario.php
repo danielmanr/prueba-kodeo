@@ -7,5 +7,5 @@ class Usuario extends Model{
     protected $table      = 'tbl_usuarios';
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
-    protected $allowedFilds = ['Nombre','Contrasena'];
+    protected $allowedFields = ['Nombre','Contrasena'];
 }
