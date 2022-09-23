@@ -49,6 +49,16 @@ class UsuarioController extends Controller{
         }
 
 
-    } 
+    }
+    
+    
+    public function borrar($id = null){
+        $usuario = new Usuario();
+        $usuario->where('id',$id)->delete($id);
+
+        return $this->response->redirect(site_url('listaUsuarios'));
+        
+
+    }
 
 }

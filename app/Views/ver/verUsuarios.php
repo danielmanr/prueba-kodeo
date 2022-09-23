@@ -1,8 +1,6 @@
 <?= $header; ?>
-<a href="<?=base_url('../registro/registrarUsuario.php')?>">Nuevo usuario</a>
-<?php print_r($tbl_usuarios) ?>
-
-        <table class="table table-light">
+<a href="<?=base_url('crear')?>">Nuevo usuario</a>
+        <table class="table table-light">       
             <thead class="thead-light">
                 <tr>
                     <th>#</th>
@@ -15,7 +13,12 @@
                 <tr>
                     <td> <?=$usuario['id'];?> </td>
                     <td><?=$usuario['Nombre']?></td>
-                    <td>borrar/Editar</td>
+                    <td>Editar
+                        <a href="<?=base_url('borrarUsuario/'.$usuario['id'])?>" class="btn btn-danger" type="button">borrar</a>
+
+                        <a href="<?=base_url('borrarUsuario/'.$usuario['id'])?>" class="btn btn-danger" type="button">borrar</a>
+
+                    </td>
                 </tr>
                 <?php endforeach;?>
             </tbody>

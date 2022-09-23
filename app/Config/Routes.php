@@ -56,3 +56,4 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 $routes->get('crear', 'UsuarioController::crear');
 $routes->post('guardar', 'UsuarioController::guardar');
 $routes->get('listaUsuarios', 'UsuarioController::index');
+$routes->get('borrarUsuario/(:num)', 'UsuarioController::borrar/$1');
