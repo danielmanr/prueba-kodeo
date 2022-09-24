@@ -41,12 +41,8 @@ class UsuarioController extends Controller{
                 'Nombre' => $this->mRequest->getVar('nombre'),
                 'Contrasena' => $this->mRequest->getVar('contrasena')
             ];
-            $db = \Config\Database::connect();
-            $ejecucion = $db->table('tbl_usuarios');
-            $ejecucion->insert($datos);
+            $usuario->insert($datos);
             return $this->response->redirect(site_url('listaUsuarios'));
-            
-
         }
     }
     
