@@ -64,3 +64,5 @@ $routes->get('inicioSesion', 'LoginController::login');
 $routes->post('loguear', 'LoginController::loguear');
 $routes->get('salir', 'LoginController::salir');
 $routes->get('eltiempo', 'TimeController::obtenerTiempo');
+$routes->get('registrarNoticia', 'NoticiaController::crearNoticia');
+$routes->post('guardarNoticia', 'NoticiaController::guardarNoticia');

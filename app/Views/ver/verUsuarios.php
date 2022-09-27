@@ -17,6 +17,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?=base_url('listaNoticias')?>">Lista Noticias</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="<?=base_url('registrarNoticia')?>">Crear Noticia</a>
+      </li>
     </ul>
   </div>
 </nav>
