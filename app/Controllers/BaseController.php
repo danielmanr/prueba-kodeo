@@ -36,6 +36,7 @@ abstract class BaseController extends Controller
      * @var array
      */
     protected $helpers = [];
+    protected $session = null;
 
     /**
      * Constructor.
@@ -44,8 +45,11 @@ abstract class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
+        
 
         // Preload any models, libraries, etc, here.
+
+        $this->session = \Config\Services::session();
 
         // E.g.: $this->session = \Config\Services::session();
     }

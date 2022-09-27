@@ -59,3 +59,8 @@ $routes->get('listaUsuarios', 'UsuarioController::index');
 $routes->get('borrarUsuario/(:num)', 'UsuarioController::borrar/$1');
 $routes->get('editarUsuario/(:num)', 'UsuarioController::editar/$1');
 $routes->post('actualizarUsuario', 'UsuarioController::actualizar');
+$routes->get('home', 'HomeController::inicio');
+$routes->get('inicioSesion', 'LoginController::login');
+$routes->post('loguear', 'LoginController::loguear');
+$routes->get('salir', 'LoginController::salir');
+$routes->get('eltiempo', 'TimeController::obtenerTiempo');

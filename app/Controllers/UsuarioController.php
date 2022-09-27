@@ -3,12 +3,26 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Usuario;
-class UsuarioController extends Controller{
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use Psr\Log\LoggerInterface;
+
+
+class UsuarioController extends BaseController{
+
 
 
     public function __construct()
     {
         $this->mRequest = service("request");
+    }
+
+    public function initController(RequestInterface $request,ResponseInterface $response,LoggerInterface $logger) {
+        parent::initController($request, $response, $logger);   
+        if(!isset($_SESSION['nombre'])){
+            return $this->response->redirect(site_url('inicioSesion'));
+        }
+       
     }
 
     public function index(){
@@ -18,6 +32,7 @@ class UsuarioController extends Controller{
 
         $datos['header'] = view('templates/header');
         $datos['footer'] = view('templates/footer');
+        
 
         return view('ver/verUsuarios',$datos);
 
@@ -76,9 +91,10 @@ class UsuarioController extends Controller{
         $usuario->update($id,$datos);
         
         return $this->response->redirect(site_url('listaUsuarios'));
-
-
-
     }
+
+
+    
+
 
 }
