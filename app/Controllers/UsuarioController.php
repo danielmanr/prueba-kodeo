@@ -88,7 +88,7 @@ class UsuarioController extends BaseController{
             'Nombre' => $this->mRequest->getVar('nombre'),
             'Contrasena' => $this->mRequest->getVar('contrasena')
         ];
-        $usuario->update($id,$datos);
+        $usuario->update($id,$datos);        
         
         return $this->response->redirect(site_url('listaUsuarios'));
     }

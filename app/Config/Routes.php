@@ -66,3 +66,7 @@ $routes->get('salir', 'LoginController::salir');
 $routes->get('eltiempo', 'TimeController::obtenerTiempo');
 $routes->get('registrarNoticia', 'NoticiaController::crearNoticia');
 $routes->post('guardarNoticia', 'NoticiaController::guardarNoticia');
+$routes->get('verNoticias', 'NoticiaController::index');
+$routes->get('editarNoticia/(:num)', 'NoticiaController::editarNoticia/$1');
+$routes->post('actualizarNoticia', 'NoticiaController::actualizarNoticia');
+$routes->get('borrarNoticia/(:num)', 'NoticiaController::borrarNoticia/$1');

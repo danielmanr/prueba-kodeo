@@ -15,7 +15,7 @@
         <a class="nav-link" href="<?=base_url('crear')?>">Crear Usuario</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?=base_url('verNoticias')?>">Lista Noticias</a>
+        <a class="nav-link" href="<?=base_url('listaNoticias')?>">Lista Noticias</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="<?=base_url('registrarNoticia')?>">Crear Noticia</a>
@@ -29,19 +29,25 @@
             <thead class="thead-light">
                 <tr>
                     <th>#</th>
-                    <th>Nombre</th>
-                    <th>Acciones</th>
+                    <th>Fecha Noticia</th>
+                    <th>Titular</th>
+                    <th>Categorias</th>
+                    <th>slug</th>
+                    <th>Opciones</th>
                 </tr>        
             </thead>
             <tbody>
-                <?php foreach($tbl_usuarios as $usuario):?>
+                <?php foreach($tbl_noticias as $noticia):?>
                 <tr>
-                    <td> <?=$usuario['id'];?> </td>
-                    <td><?=$usuario['Nombre']?></td>
+                    <td> <?=$noticia->id;?> </td>
+                    <td><?=$noticia->FechaNoticia?></td>
+                    <td><?=$noticia->Titular?></td>
+                    <td><?=$noticia->Nombre?></td>
+                    <td><?=$noticia->slug?></td>
                     <td>
-                        <a href="<?=base_url('editarUsuario/'.$usuario['id'])?>" class="btn btn-info" type="button">editar</a>
+                        <a href="<?=base_url('editarNoticia/'.$noticia->id)?>" class="btn btn-info" type="button">editar</a>
 
-                        <a href="<?=base_url('borrarUsuario/'.$usuario['id'])?>" class="btn btn-danger" type="button">borrar</a>
+                        <a href="<?=base_url('borrarNoticia/'.$noticia->id)?>" class="btn btn-danger" type="button">borrar</a>
 
                     </td>
                 </tr>

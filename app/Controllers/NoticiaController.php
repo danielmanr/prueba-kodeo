@@ -18,6 +18,19 @@ class NoticiaController extends BaseController{
     }
 
 
+    public function index(){
+        $noticia = new Noticia();
+        $selct = $noticia->select('tbl_noticias.id,tbl_noticias.FechaNoticia,tbl_noticias.Titular,tbl_noticias.slug,tbl_noticias_categorias.Nombre');
+        $join = $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id =tbl_noticias_categorias.id  ');
+        $query = $join->get(); 
+        $datos['tbl_noticias'] = $query->getResult();
+        // $datos['tbl_noticias'] = $datos->result;
+        $datos['header'] = view('templates/header');
+        $datos['footer'] = view('templates/footer');
+        return view('ver/verNoticias',$datos);
+    }
+
+
     public function guardarNoticia(){
         $noticia = new Noticia();
         $datos = [
@@ -29,20 +42,41 @@ class NoticiaController extends BaseController{
 
         ];
         $noticia->insert($datos);
-        return $this->response->redirect(site_url('registrarNoticia'));
+        return $this->response->redirect(site_url('verNoticias'));
+    }
 
 
+    public function editarNoticia($id = null){
+        $noticia = new Noticia();
+        $datos['tbl_noticias'] = $noticia->where('id',$id)->first();
 
-        // $usuario = new Usuario();
+        $datos['header'] = view('templates/header');
+        $datos['footer'] = view('templates/footer');
+        return view('editar/editarNoticia',$datos);
+    }
 
-        // if($contrasena = $this->mRequest->getVar('contrasena')){
-        //     $datos = [
-        //         'Nombre' => $this->mRequest->getVar('nombre'),
-        //         'Contrasena' => $this->mRequest->getVar('contrasena')
-        //     ];
-        //     $usuario->insert($datos);
-        //     return $this->response->redirect(site_url('listaUsuarios'));
-        // }
+
+    public function actualizarNoticia(){
+        $noticia = new Noticia();
+        $id = intval($this->mRequest->getVar('id'));
+        $datos = [
+            'FechaNoticia' => $this->mRequest->getVar('fecha'),
+            'Titular' => $this->mRequest->getVar('titular'),
+            'Texto' => $this->mRequest->getVar('texto'),
+            'categoria_id' => $this->mRequest->getVar('categoria'),
+            'slug' => $this->mRequest->getVar('slug')
+        ];
+        var_dump($datos);
+        $noticia->update($id,$datos);
+
+        return $this->response->redirect(site_url('verNoticias'));
+    }
+
+
+    public function borrarNoticia($id = null){
+        $noticia = new Noticia();
+        $noticia->where('id',$id)->delete($id);
+        return $this->response->redirect(site_url('verNoticias'));
 
     }
 

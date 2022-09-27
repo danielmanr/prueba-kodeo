@@ -8,4 +8,11 @@ class Usuario extends Model{
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
     protected $allowedFields = ['Nombre','Contrasena'];
+
+
+    public function consultaManual(){
+        $sql = 
+        $ejecucion = $db->table('tbl_usuarios');
+        $ejecucion->upda
+    }
 }
