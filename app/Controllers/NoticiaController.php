@@ -2,7 +2,11 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\NoticiasCategoria;
+
+use CodeIgniter\Model;
 use App\Models\Noticia;
+
 class NoticiaController extends BaseController{
 
     public function __construct()
@@ -11,14 +15,13 @@ class NoticiaController extends BaseController{
     }
 
     public function crearNoticia(){
-        $noticia = new Noticia();
-        $noticia->select('tbl_noticias_categorias.Nombre');
-        $join = $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id = tbl_noticias_categorias.id  ');
-        $query = $join->get(); 
-        $datos['tbl_noticias'] = $query->getResult();
+        $nc = new NoticiasCategoria();
+        $resultado = $nc->select("*");
+        $query = $resultado->get();
+        $query = $query->getResult();
+        $datos['tbl_noticias_categorias'] = $query;
         $datos['header'] = view('templates/header');
         $datos['footer'] = view('templates/footer');
-
         return view('registro/registrarNoticias',$datos);
     }
 
@@ -44,7 +47,6 @@ class NoticiaController extends BaseController{
             'Texto' => $this->mRequest->getVar('texto'),
             'categoria_id' => $this->mRequest->getVar('categoria'),
             'slug' => $this->mRequest->getVar('slug')
-
         ];
         $noticia->insert($datos);
         return $this->response->redirect(site_url('verNoticias'));
