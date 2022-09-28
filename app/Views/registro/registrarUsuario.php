@@ -7,7 +7,7 @@
             <h5 class="card-title">Ingrese los Datos</h5>
             <p class="card-text">
 
-            <form method="post" action="<?= site_url('/guardar')?>" enctype="multipart/form-data">
+            <form method="post" action="<?= site_url('/inicioSesion')?>" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label for="nombre">Nombre</label>

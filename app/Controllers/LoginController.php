@@ -16,8 +16,8 @@ class LoginController extends BaseController
 
     public function login()
     {
-        $datos['header'] = view('templates/header');
-        $datos['footer'] = view('templates/footer');
+        $datos['header'] = view('templatesFuera/header');
+        $datos['footer'] = view('templatesFuera/footer');
 
         return view('login', $datos);
     }
@@ -26,8 +26,8 @@ class LoginController extends BaseController
     public function loguear()
     {
         $usuario = new Usuario();
-        $datos['header'] = view('templates/header');
-        $datos['footer'] = view('templates/footer');
+        $datos['header'] = view('templatesFuera/header');
+        $datos['footer'] = view('templatesFuera/footer');
         $nombre = $this->mRequest->getVar('nombre');
         $contrasena = $this->mRequest->getVar('contrasena');
 

@@ -1,6 +1,6 @@
 <?= $header; ?>
 
-<h5>Editar Usuario</h5>
+<h5>Editar Usuarios</h5>
 
     <div class="card">
         <div class="card-body">
@@ -13,15 +13,15 @@
 
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input id="nombre" value="<?=$tbl_usuarios['Nombre']?>" class="form-control" type="text" name="nombre">
+                    <input id="nombre" class="form-control" value="<?=$tbl_usuarios['Nombre']?>" type="text" name="nombre">
                 </div>
 
                 <div class="form-group">
-                    <label for="contrasena">contrasena</label>
-                    <input id="contrasena" value="<?=$tbl_usuarios['Contrasena']?>" class="form-control-file" type="password" name="contrasena">
+                    <label for="nombre">contrasena</label>
+                    <input id="contrasena" class="form-control" value="<?=$tbl_usuarios['Contrasena']?>" type="password" name="contrasena">
                 </div>
 
-                <button class="btn btn-success" type="submit">Guardar</button>
+                <button class="btn btn-success" type="submit">Actualizar</button>
 
             </form>
 

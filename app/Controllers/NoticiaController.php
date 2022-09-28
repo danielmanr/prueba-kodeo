@@ -80,4 +80,31 @@ class NoticiaController extends BaseController{
 
     }
 
+
+    public function noticia(){
+        $noticia = new Noticia();
+        $selct = $noticia->select('*');
+        $join = $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id =tbl_noticias_categorias.id  ');
+        $query = $join->get(); 
+        $datos['tbl_noticias'] = $query->getResult();
+        $datos['header'] = view('templatesFuera/header');
+        $datos['footer'] = view('templatesFuera/footer');
+        return view('ver/noticias',$datos);
+    }
+
+
+    public function detalleNoticia($slug,$id){
+        $noticia = new Noticia();
+        $selct = $noticia->select('*');
+        $join = $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id =tbl_noticias_categorias.id ');
+        $datos['tbl_noticias'] = $noticia->where('slug',$slug)->first();
+        $datos['header'] = view('templatesFuera/header');
+        $datos['footer'] = view('templatesFuera/footer');
+        return view('ver/detalleNoticia',$datos);
+        
+
+
+    }
+
+
 }

@@ -51,14 +51,14 @@ class UsuarioController extends BaseController{
     public function guardar(){
         $usuario = new Usuario();
 
-        if($contrasena = $this->mRequest->getVar('contrasena')){
-            $datos = [
-                'Nombre' => $this->mRequest->getVar('nombre'),
-                'Contrasena' => $this->mRequest->getVar('contrasena')
-            ];
-            $usuario->insert($datos);
-            return $this->response->redirect(site_url('listaUsuarios'));
-        }
+        $this->mRequest->getVar('contrasena');
+        $datos = [
+            'Nombre' => $this->mRequest->getVar('nombre'),
+            'Contrasena' => $this->mRequest->getVar('contrasena')
+        ];
+        $usuario->insert($datos);
+        return $this->response->redirect(site_url('listaUsuarios'));
+        
     }
     
     
@@ -88,6 +88,7 @@ class UsuarioController extends BaseController{
             'Nombre' => $this->mRequest->getVar('nombre'),
             'Contrasena' => $this->mRequest->getVar('contrasena')
         ];
+
         $usuario->update($id,$datos);        
         
         return $this->response->redirect(site_url('listaUsuarios'));

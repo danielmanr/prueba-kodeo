@@ -70,3 +70,20 @@ $routes->get('verNoticias', 'NoticiaController::index');
 $routes->get('editarNoticia/(:num)', 'NoticiaController::editarNoticia/$1');
 $routes->post('actualizarNoticia', 'NoticiaController::actualizarNoticia');
 $routes->get('borrarNoticia/(:num)', 'NoticiaController::borrarNoticia/$1');
+$routes->get('verCategoria', 'NoticiasCategoriaController::index');
+
+$routes->get('crearCategoria', 'NoticiasCategoriaController::crearCategoria');
+$routes->post('guardarCategoria', 'NoticiasCategoriaController::guardarCategoria');
+$routes->get('listaCategorias', 'NoticiasCategoriaController::index');
+$routes->get('borrarCategoria/(:num)', 'NoticiasCategoriaController::borrarCategoria/$1');
+$routes->get('editarCategotia/(:num)', 'NoticiasCategoriaController::editarCategoria/$1');
+
+
+$routes->get('editarCategoria/(:num)', 'NoticiasCategoriaController::editarCategoria/$1');
+$routes->post('actualizarCategorias', 'NoticiasCategoriaController::actualizarCategoria');
+$routes->get('salir', 'HomeController::inicio');
+
+$routes->get('crearSin', 'HomeController::registrar');
+
+$routes->get('noticia', 'NoticiaController::noticia');
+$routes->get('detalleNoticia/(:any)', 'NoticiaController::detalleNoticia/$1/$2');

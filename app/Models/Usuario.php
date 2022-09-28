@@ -10,9 +10,5 @@ class Usuario extends Model{
     protected $allowedFields = ['Nombre','Contrasena'];
 
 
-    public function consultaManual(){
-        $sql = 
-        $ejecucion = $db->table('tbl_usuarios');
-        $ejecucion->upda
-    }
+   
 }
