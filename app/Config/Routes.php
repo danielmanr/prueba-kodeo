@@ -86,4 +86,6 @@ $routes->get('salir', 'HomeController::inicio');
 $routes->get('crearSin', 'HomeController::registrar');
 
 $routes->get('noticia', 'NoticiaController::noticia');
-$routes->get('detalleNoticia/(:any)', 'NoticiaController::detalleNoticia/$1/$2');
+$routes->get('noticia/detalleNoticia/(:any)', 'NoticiaController::detalleNoticia/$1/$2');
+$routes->get('noticias/categoria', 'NoticiaController::verCategoriaNoticia');
+$routes->get('noticias/categoria/(:any)', 'NoticiaController::listadoCategoria/$1');

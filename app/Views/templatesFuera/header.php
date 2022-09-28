@@ -25,7 +25,7 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?=base_url('noticia')?>">Ultimas Noticias</a>
-                        <a class="dropdown-item" href="<?=base_url('noticia')?>">Categorias Noticias</a>
+                        <a class="dropdown-item" href="<?=base_url('noticias/categoria')?>">Categorias Noticias</a>
                         
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>

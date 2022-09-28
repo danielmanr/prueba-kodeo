@@ -89,21 +89,42 @@ class NoticiaController extends BaseController{
         $datos['tbl_noticias'] = $query->getResult();
         $datos['header'] = view('templatesFuera/header');
         $datos['footer'] = view('templatesFuera/footer');
-        return view('ver/noticias',$datos);
+        return view('ver/noticia/noticiasobj',$datos);
     }
 
 
     public function detalleNoticia($slug,$id){
         $noticia = new Noticia();
-        $selct = $noticia->select('*');
-        $join = $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id =tbl_noticias_categorias.id ');
+        $noticia->select('*');
+        $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id =tbl_noticias_categorias.id ');
         $datos['tbl_noticias'] = $noticia->where('slug',$slug)->first();
         $datos['header'] = view('templatesFuera/header');
         $datos['footer'] = view('templatesFuera/footer');
-        return view('ver/detalleNoticia',$datos);
-        
+        return view('ver/noticia/detalleNoticia',$datos);
+    }
 
 
+    public function verCategoriaNoticia(){
+        $noticia = new Noticia();
+        $noticia->select('tbl_noticias_categorias.Nombre');
+        $join = $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id = tbl_noticias_categorias.id  ');
+        $query = $join->get(); 
+        $datos['tbl_noticias'] = $query->getResult();
+        $datos['header'] = view('templatesFuera/header');
+        $datos['footer'] = view('templatesFuera/footer');
+        return view('ver/noticia/categoria',$datos);
+    }
+
+
+    public function listadoCategoria($categoria){
+        $noticia = new Noticia();
+        $noticia = new Noticia();
+        $noticia->select('*');
+        $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id =tbl_noticias_categorias.id ');
+        $datos['tbl_noticias'] = $noticia->where('tbl_noticias_categorias.Nombre',$categoria)->findAll();
+        $datos['header'] = view('templatesFuera/header');
+        $datos['footer'] = view('templatesFuera/footer');
+        return view('ver/noticia/noticias',$datos);
     }
 
 
