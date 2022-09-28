@@ -1,5 +1,7 @@
 <?= $header; ?>
 
+<?php var_dump($tbl_noticias) ?>
+
 <h5>Crear Nueva Noticia</h5>
 
     <div class="card">
@@ -26,7 +28,7 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">Categorias</label>
-                    <select multiple class="form-control" id="categoria" name="categoria">
+                    <select multiple class="form-control" id="categoria" name="categoria">      
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>

@@ -11,6 +11,11 @@ class NoticiaController extends BaseController{
     }
 
     public function crearNoticia(){
+        $noticia = new Noticia();
+        $noticia->select('tbl_noticias_categorias.Nombre');
+        $join = $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id = tbl_noticias_categorias.id  ');
+        $query = $join->get(); 
+        $datos['tbl_noticias'] = $query->getResult();
         $datos['header'] = view('templates/header');
         $datos['footer'] = view('templates/footer');
 
@@ -27,7 +32,7 @@ class NoticiaController extends BaseController{
         // $datos['tbl_noticias'] = $datos->result;
         $datos['header'] = view('templates/header');
         $datos['footer'] = view('templates/footer');
-        return view('ver/verNoticias',$datos);
+        return view('ver/noticia/verNoticias',$datos);
     }
 
 
