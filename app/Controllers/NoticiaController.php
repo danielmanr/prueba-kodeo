@@ -55,6 +55,14 @@ class NoticiaController extends BaseController{
 
     public function editarNoticia($id = null){
         $noticia = new Noticia();
+        
+        $nc = new NoticiasCategoria();
+        $resultado = $nc->select("*");
+        $query = $resultado->get();
+        $query = $query->getResult();
+        $datos['tbl_noticias_categorias'] = $query;
+
+        
         $datos['tbl_noticias'] = $noticia->where('id',$id)->first();
 
         $datos['header'] = view('templates/header');
@@ -112,11 +120,11 @@ class NoticiaController extends BaseController{
 
 
     public function verCategoriaNoticia(){
-        $noticia = new Noticia();
-        $noticia->select('tbl_noticias_categorias.Nombre');
-        $join = $noticia->join('tbl_noticias_categorias','tbl_noticias.categoria_id = tbl_noticias_categorias.id  ');
-        $query = $join->get(); 
-        $datos['tbl_noticias'] = $query->getResult();
+        $nc = new NoticiasCategoria();
+        $resultado = $nc->select("*");
+        $query = $resultado->get();
+        $query = $query->getResult();
+        $datos['tbl_noticias_categorias'] = $query;
         $datos['header'] = view('templatesFuera/header');
         $datos['footer'] = view('templatesFuera/footer');
         return view('ver/noticia/categoria',$datos);

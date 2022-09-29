@@ -32,7 +32,7 @@
                         <a class="nav-link" href="<?=base_url('crearCategoria')?>">Crear Categoria</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?=base_url('Salir')?>">salir</a>
+                        <a class="nav-link" href="<?=base_url('salir')?>">salir</a>
                     </li>
                 </ul>
             </div>

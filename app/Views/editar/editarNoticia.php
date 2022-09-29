@@ -29,12 +29,10 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">Categorias</label>
-                    <select multiple class="form-control" value="<?=$tbl_noticias['categoria_id']?>" id="categoria" name="categoria">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select multiple class="form-control" value="<?=$tbl_noticias['categoria_id']?>" id="categoria" name="categoria">                     
+                        <?php foreach($tbl_noticias_categorias as $categoria): ?>     
+                        <option value ="<?php echo($categoria->id)?>"><?php echo($categoria->Nombre)?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
