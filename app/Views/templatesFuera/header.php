@@ -28,7 +28,7 @@
                         <a class="dropdown-item" href="<?=base_url('noticias/categoria')?>">Categorias Noticias</a>
                         
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="<?=base_url('obtenerTiempo')?>">Noticias Pamplona</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

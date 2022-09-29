@@ -63,7 +63,10 @@ $routes->get('home', 'HomeController::inicio');
 $routes->get('inicioSesion', 'LoginController::login');
 $routes->post('loguear', 'LoginController::loguear');
 $routes->get('salir', 'LoginController::salir');
-$routes->get('eltiempo', 'TimeController::obtenerTiempo');
+
+
+$routes->get('obtenerTiempo', 'TiempoController::obtenerTiempo');
+
 $routes->get('registrarNoticia', 'NoticiaController::crearNoticia');
 $routes->post('guardarNoticia', 'NoticiaController::guardarNoticia');
 $routes->get('verNoticias', 'NoticiaController::index');
